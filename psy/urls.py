@@ -16,10 +16,11 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from django.conf.urls import include
-from psy.frontend import views
+from psy.frontendpsy import views
 
 urlpatterns = [
+    url(r'^accounts/', include('allauth.urls')),    
     url(r'^admin/', admin.site.urls),
     url(r'^demopsy/$', views.demopsy, name='demopsy'),
-    url("", include('social.apps.django_app.urls', namespace='social')),
+    url(r'^bank/$', views.bank, name='bank'),
 ]
